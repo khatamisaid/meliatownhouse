@@ -1,0 +1,45 @@
+<footer th:fragment="footerTop" class="footer" id="footerTop">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-column footer-about">
+                        <h3 class="footer-title" th:text="${website.websiteName}"></h3>
+                        <p class="footer-about-text">
+                            Onasis Town House selalu siap membantu dengan senang hati atas pertanyaan Anda. Silahkan
+                            tanyakan apapun kepada kami untuk masalah rumah idaman yang Anda inginkan. Anda dapat
+                            menghubungi kami melalui telepon atau email terlampir. Sekiranya terdapat masukan, Kami siap
+                            menerima.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-column footer-contact">
+                        <h3 class="footer-title">Kontak</h3>
+                        <p class="footer-contact-text">
+                            Jalan Mardani Raya No.14, RT 01 RW 10,
+                            Cempaka Putih Barat, Cempaka Putih,
+                            Jakarta Pusat, DKI Jakarta, 10510
+                        </p>
+                        <div class="footer-contact-info">
+                            <a href="tel:02121243684">
+                                <p class="footer-contact-phone"><span class="flaticon-call"></span> (021) 21243684</p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 offset-md-1">
+                    <div class="footer-column footer-explore clearfix">
+                        <h3 class="footer-title">Explore</h3>
+                        <ul class="footer-explore-list list-unstyled">
+                            <li><a th:href="@{/}">Beranda</a></li>
+                            <li><a th:href="@{/property}">Property</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
