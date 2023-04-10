@@ -98,19 +98,19 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String index(Model model) {
-        Website web = websiteRepository.findAll().get(0);
-        model.addAttribute("website", web);
-        model.addAttribute("websiteName", websiteService.websiteName());
-        String namafile = web.getWebsiteVideo().split("\\.")[0];
-        model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
-        List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
-        if (listContactPerson.size() > 0) {
-            ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
-            model.addAttribute("contactPerson", cp);
-        }
-        if (activeProfile.equalsIgnoreCase("production")) {
-            logAktivitasRepository.save(new LogAktivitas(null, "Beranda", "/"));
-        }
+        // Website web = websiteRepository.findAll().get(0);
+        // model.addAttribute("website", web);
+        // model.addAttribute("websiteName", websiteService.websiteName());
+        // String namafile = web.getWebsiteVideo().split("\\.")[0];
+        // model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
+        // List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
+        // if (listContactPerson.size() > 0) {
+        //     ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
+        //     model.addAttribute("contactPerson", cp);
+        // }
+        // if (activeProfile.equalsIgnoreCase("production")) {
+        //     logAktivitasRepository.save(new LogAktivitas(null, "Beranda", "/"));
+        // }
         return "index";
     }
 
