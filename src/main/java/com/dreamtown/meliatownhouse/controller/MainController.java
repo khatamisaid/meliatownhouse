@@ -98,11 +98,12 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String index(Model model) {
-        // Website web = websiteRepository.findAll().get(0);
-        // model.addAttribute("website", web);
-        // model.addAttribute("websiteName", websiteService.websiteName());
-        // String namafile = web.getWebsiteVideo().split("\\.")[0];
-        // model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
+        Website web = websiteRepository.findAll().get(0);
+        model.addAttribute("website", web);
+        model.addAttribute("websiteName", websiteService.websiteName());
+        String namafile = web.getWebsiteVideo().split("\\.")[0];
+        model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
+        model.addAttribute("logAktivitas", utils.logAktivitas());
         // List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
         // if (listContactPerson.size() > 0) {
         //     ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));

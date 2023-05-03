@@ -1,13 +1,36 @@
 package com.dreamtown.meliatownhouse.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.dreamtown.meliatownhouse.repository.LogAktivitasRepository;
 
 @Service
 public class Utils {
+
+    @Autowired
+    private LogAktivitasRepository logAktivitasRepository;
+
+    public Map logAktivitas() {
+        Map res = new HashMap<>();
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DATE, 1);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        String tglDari = simpleDateFormat.format(new Date());
+        String tglSampai = simpleDateFormat.format(c.getTime());
+        res.put("totalKeseluruhan", logAktivitasRepository.findAll().size());
+        res.put("totalHariIni", logAktivitasRepository.logHariBetween(tglDari,
+                tglSampai));
+        return res;
+    }
 
     public String[] checkNullOrEmptyString(String word) {
         try {

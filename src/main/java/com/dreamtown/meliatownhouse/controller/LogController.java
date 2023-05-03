@@ -1,5 +1,8 @@
 package com.dreamtown.meliatownhouse.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +22,8 @@ import com.dreamtown.meliatownhouse.entity.LogWhatsApp;
 import com.dreamtown.meliatownhouse.repository.ContactPersonRepository;
 import com.dreamtown.meliatownhouse.repository.LogAktivitasRepository;
 import com.dreamtown.meliatownhouse.repository.LogWhatsAppRepository;
+import com.dreamtown.meliatownhouse.utils.Utils;
+
 import static org.springframework.http.MediaType.*;
 
 @Controller
@@ -34,6 +39,9 @@ public class LogController {
     @Autowired
     private LogAktivitasRepository logAktivitasRepository;
 
+    @Autowired
+    private Utils utils;
+
     @RequestMapping(value = "/whatsapp/findById/{id}", method = RequestMethod.GET)
     public ResponseEntity<ContactPerson> findById(@PathVariable Integer id) {
         return new ResponseEntity<>(cpRepository.findById(id).get(), HttpStatus.OK);
@@ -46,12 +54,8 @@ public class LogController {
     }
 
     @RequestMapping(value = "/aktivitas", method = RequestMethod.GET)
-    public ResponseEntity<Map> get_log_aktivitas(String tglDari, String tglSampai) {
-        Map res = new HashMap<>();
-        res.put("totalKeseluruhan", logAktivitasRepository.findAll().size());
-        res.put("totalHariIni", logAktivitasRepository.logHariBetween(tglDari.replace("-", ""),
-                tglSampai.replace("-", "")));
-        return new ResponseEntity<>(res, HttpStatus.OK);
+    public ResponseEntity<Map> get_log_aktivitas() {
+        return new ResponseEntity<>(utils.logAktivitas(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/activity", method = RequestMethod.GET)
