@@ -38,6 +38,7 @@ import com.dreamtown.meliatownhouse.repository.PropertyRepository;
 import com.dreamtown.meliatownhouse.repository.WebsiteRepository;
 import com.dreamtown.meliatownhouse.service.WebsiteService;
 import com.dreamtown.meliatownhouse.utils.UUIDGenerator;
+import com.dreamtown.meliatownhouse.utils.Utils;
 
 import static org.springframework.http.MediaType.*;
 
@@ -69,6 +70,9 @@ public class PropertyController {
     @Value("${spring.profiles.active}")
     private String activeProfile;
 
+    @Autowired
+    private Utils utils;
+
     @RequestMapping(method = RequestMethod.GET)
     public String property(Model model) {
         Website web = websiteRepository.findAll().get(0);
@@ -78,6 +82,7 @@ public class PropertyController {
         if (activeProfile.equalsIgnoreCase("production")) {
             logAktivitasRepository.save(new LogAktivitas(null, "Property", "/property"));
         }
+        model.addAttribute("logAktivitas", utils.logAktivitas());
         return "property";
     }
 

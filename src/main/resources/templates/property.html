@@ -1,90 +1,161 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Onasis Town House Rumah impian , onasistownhouse, onasis townhouse, onasis town house, property murah, harga terjangkau, tidak ada bunga, lokasi pusat kota, harga paling murah "/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="google-site-verification" content="w_5ajaJMvXEGYDQXCbEqTVy3bAtSle5IIePlYo6H8EE" />
-    <title>Onasis Town House</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" th:href="@{/img/favicon.png}" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" th:href="@{/css/plugins.css}" />
-    <link rel="stylesheet" th:href="@{/css/style1.css}" />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N6EELX689J"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Melia Town House </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo_melia.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo_melia.jpg" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <meta name="description" content="alipes HTML 5 Template " />
 
-    gtag('config', 'G-N6EELX689J');
-</script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="assets/vendors/alipes-icons/style.css">
+    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="assets/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="assets/vendors/nice-select/nice-select.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="assets/css/alipes.css" />
+    <link rel="stylesheet" href="assets/css/alipes-responsive.css" />
 </head>
-<body>
-    <!-- Preloader -->
-    <div class="preloader-bg"></div>
-    <div id="preloader">
-        <div id="preloader-status">
-            <div class="preloader-position loader"> <span></span> </div>
-        </div>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+
+
+    <div class="preloader">
+        <div class="preloader__image"></div>
     </div>
-    <!-- Progress scroll totop -->
-    <div class="progress-wrap cursor-pointer">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-    <!-- Navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
-    <!-- Slider -->
-    <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-    <header class="header slider-fade" id="header">
-        <div class="owl-carousel owl-theme">
-            <div th:each="photo, iter : ${website.listWebsitePhoto}" class="text-center item bg-img" data-overlay-dark="2"
-                th:attr="data-background='/loadfile/'+${photo.namaPhoto}">
-                <div class="v-middle caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-10 offset-md-1">
-                                <span>
-                                    <i class="star-rating"></i>
-                                    <i class="star-rating"></i>
-                                    <i class="star-rating"></i>
-                                    <i class="star-rating"></i>
-                                    <i class="star-rating"></i>
-                                </span>
-                                <h2 th:text="${website.websiteName}"></h2>
-                                <th:block th:if="${iter.index == 0}">
-                                    <h4>Kenyamanan Anda yang Utama</h4>
-                                </th:block>
-                                <th:block th:if="${iter.index == 1}">
-                                    <h4>Bangunan Berkualitas</h4>
-                                </th:block>
-                                <th:block th:if="${iter.index == 2}">
-                                    <h4>Harga Pasti Murah</h4>
-                                </th:block>
+    <!-- /.preloader -->
+
+
+    <div class="page-wrapper">
+        <div th:replace="fragments/navbar :: navbar"></div>
+
+        <div class="stricky-header stricked-menu main-menu main-menu-two main-menu-three">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+        <!--Main Slider Start-->
+        <section class="main-slider-three clearfix">
+            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
+                "effect": "fade",
+                "pagination": {
+                "el": "#main-slider-pagination",
+                "type": "bullets",
+                "clickable": true
+                },
+                "navigation": {
+                "nextEl": "#main-slider__swiper-button-next",
+                "prevEl": "#main-slider__swiper-button-prev"
+                },
+                "autoplay": {
+                "delay": 5000
+                }}'>
+                <div class="swiper-wrapper">
+
+                    <div th:each="photo, iter : ${website.listWebsitePhoto}" class="swiper-slide">
+                        <div class="image-layer-three"
+                            th:style="'background-image: url(/loadfile/' + ${photo.namaPhoto} + ');'"></div>
+                        <!-- /.image-layer -->
+                        <!-- <div class="main-slider-three__shape-1">
+                            <img src="assets/images/shapes/main-slider-three-shape-1.png" alt="">
+                        </div> -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="main-slider-three__content">
+                                        <th:block th:if="${iter.index == 0}">
+                                            <h2 class="main-slider-three__title">Kenyamanan<br> Anda yang <br>Utama</h2>
+                                        </th:block>
+                                        <th:block th:if="${iter.index == 1}">
+                                            <h2 class="main-slider-three__title">Bangunan<br> Berkualitas</h2>
+                                        </th:block>
+                                        <th:block th:if="${iter.index == 2}">
+                                            <h2 class="main-slider-three__title">Harga Pasti<br> Murah</h2>
+                                        </th:block>
+
+                                        <div class="main-slider-three__details-box">
+                                            <h5 class="main-slider-three__details-sub-title"
+                                                th:text="${logAktivitas.totalHariIni} + 'Pengunjung hari ini'"></h5>
+                                            <div class="main-slider-three__details">
+                                                <div class="main-slider-three__details-icon">
+                                                    <span class="fa fa-eye"></span>
+                                                </div>
+                                                <div class="main-slider-three__details-content">
+                                                    <h3 class="odometer" th:text="${logAktivitas.totalKeseluruhan}">
+                                                    </h3>
+                                                    <p class="main-slider-three__details-text">Total Pengunjung
+                                                        Keseluruhan</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="main-slider-three__nav">
+                    <div class="swiper-button-prev" id="main-slider__swiper-button-next">
+                        <i class="icon-left-arrow"></i>
+                    </div>
+                    <div class="swiper-button-next" id="main-slider__swiper-button-prev">
+                        <i class="icon-right-arrow"></i>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
+        <!--Main Slider End-->
+
         <div class="container">
-            <div style="z-index: 20; position: absolute; margin-top: -2.25rem;" class="card container">
+            <div style="z-index: 100; position: absolute; margin-top: -2.25rem;" class="card container">
                 <div class="card-body">
                     <div class="d-flex flex-row">
-                        <select class="custom-select mr-2" name="area" id="area">
+                        <select class="wide" name="area" id="area">
                             <option value="" selected>Semua Area</option>
                             <option th:each="wilayah: ${listWilayah}" th:value="${wilayah.idWilayah}"
                                 th:text="${wilayah.namaWilayah}"></option>
                         </select>
-                        <select class="custom-select mr-2" name="sortBy" id="sortBy">
+                        <select class="wide" name="sortBy" id="sortBy">
                             <option value="1" selected>Termurah</option>
                             <option value="2">Termahal</option>
                         </select>
@@ -94,39 +165,132 @@
                 </div>
             </div>
         </div>
-    </header>
-    <!-- Rekomendasi -->
-    <section style="padding: 52px 0px 24px 0px;" class="news bg-cream" data-scroll-index="1" id="rekomendasi">
-        <div th:replace="listRekomendasi :: listRekomendasi"></div>
-    </section>
-    <!-- Daftar Hunian -->
-    <section style="padding-bottom: 24px;" class="news bg-cream" data-scroll-index="2" id="daftarHunian">
-        <div th:replace="listProperty :: listProperty"></div>
-    </section>
-    <div id="tentangKami" th:replace="fragments/footerTop :: footerTop"></div>
-    <div th:replace="fragments/footerBottom :: footerBottom"></div>
-    <!-- jQuery -->
 
-    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-    <script th:src="@{/js/jquery-migrate-3.0.0.min.js}"></script>
-    <script th:src="@{/js/modernizr-2.6.2.min.js}"></script>
-    <script th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
-    <script th:src="@{/js/jquery.isotope.v3.0.2.js}"></script>
-    <script th:src="@{/js/pace.js}"></script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/scrollIt.min.js}"></script>
-    <script th:src="@{/js/jquery.waypoints.min.js}"></script>
-    <script th:src="@{/js/owl.carousel.min.js}"></script>
-    <script th:src="@{/js/jquery.stellar.min.js}"></script>
-    <script th:src="@{/js/jquery.magnific-popup.js}"></script>
-    <script th:src="@{/js/YouTubePopUp.js}"></script>
-    <script th:src="@{/js/select2.js}"></script>
-    <script th:src="@{/js/datepicker.js}"></script>
-    <script th:src="@{/js/smooth-scroll.min.js}"></script>
-    <script th:src="@{/js/custom1.js}"></script>
+        <!--List Rekomendasi-->
+        <section class="apartment-three">
+            <div class="container">
+                <div class="apartment-three__inner">
+                    <div class="apartment-three__shape-1 img-bounce">
+                        <img src="assets/images/shapes/apartment-three-shape-1.png" alt="">
+                    </div>
+                    <div class="section-title text-center">
+                        <!-- <span class="section-title__tagline">choose your apartment</span> -->
+                        <h2 class="section-title__title">Rekomendasi Hunian</h2>
+                    </div>
+                    <div th:replace="listRekomendasi :: listRekomendasi"></div>
+                </div>
+            </div>
+        </section>
+        <!--List Rekomendasi-->
+
+        <!--List Property-->
+        <section class="apartment-three">
+            <div class="container">
+                <div class="apartment-three__inner">
+                    <!-- <div class="apartment-three__shape-1 img-bounce">
+                        <img src="assets/images/shapes/apartment-three-shape-1.png" alt="">
+                    </div> -->
+                    <div class="section-title text-center">
+                        <!-- <span class="section-title__tagline">choose your apartment</span> -->
+                        <h2 class="section-title__title">Daftar Hunian</h2>
+                    </div>
+                    <div th:replace="listProperty :: listProperty"></div>
+                </div>
+            </div>
+        </section>
+        <!--List Property-->
+
+        <!--Site Footer Start-->
+        <footer class="site-footer">
+            <div class="site-footer__shape-1 float-bob-x">
+                <img src="assets/images/shapes/site-footer-shape-1.png" alt="">
+            </div>
+            <div class="container">
+                <div class="site-footer__inner">
+                    <div th:replace="fragments/footerTop :: footerTop"></div>
+                    <div th:replace="fragments/footerBottom :: footerBottom"></div>
+                </div>
+            </div>
+        </footer>
+        <!--Site Footer End-->
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div th:replace="fragments/mobileNavWrapper :: mobileNavWrapper"></div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <i class="icon-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
+
+
+    <script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendors/odometer/odometer.min.js"></script>
+    <script src="assets/vendors/swiper/swiper.min.js"></script>
+    <script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="assets/vendors/wow/wow.js"></script>
+    <script src="assets/vendors/isotope/isotope.js"></script>
+    <script src="assets/vendors/countdown/countdown.min.js"></script>
+    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="assets/vendors/vegas/vegas.min.js"></script>
+    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/vendors/timepicker/timePicker.js"></script>
+    <script src="assets/vendors/circleType/jquery.circleType.js"></script>
+    <script src="assets/vendors/circleType/jquery.lettering.min.js"></script>
+    <script src="assets/vendors/nice-select/jquery.nice-select.min.js"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="assets/js/alipes.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
+        function btnClickWA(id) {
+            $.get(`/log/whatsapp/findById/${id}`, function (cp) {
+                $.ajax({
+                    url: `/log/whatsapp`,
+                    method: "POST",
+                    data: JSON.stringify(cp),
+                    processData: false,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data, textStatus, jqXHR) {
+                        var newWindow = window.open("", "_blank");
+                        newWindow.location.href = `https://wa.me/+62${cp.nomorTelpon}`;
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    }
+                });
+
+            });
+        }
         function cari(){
             getRekomendasiProperty();
             getListProperty();

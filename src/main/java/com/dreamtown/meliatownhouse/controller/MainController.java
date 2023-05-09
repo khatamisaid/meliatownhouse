@@ -246,6 +246,7 @@ public class MainController {
                     new LogAktivitas(null, namaProperty.get().trim(), "/p/" +
                             namaProperty.get().trim() + "/details"));
         }
+        model.addAttribute("logAktivitas", utils.logAktivitas());
         return "listDetailsProperty";
     }
 

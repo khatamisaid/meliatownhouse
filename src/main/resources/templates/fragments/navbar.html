@@ -4,20 +4,23 @@
             <div class="main-menu-two__wrapper-inner">
                 <div class="main-menu-two__left">
                     <div class="main-menu-two__logo">
-                        <a href="index.html"><img style="width: 96px;" src="img/favicon.png" alt=""></a>
+                        <a th:href="@{/}"><img style="width: 96px;" th:src="@{/img/logo_melia.png}" alt=""></a>
                     </div>
                     <div class="main-menu-two__main-menu-box">
                         <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                         <ul class="main-menu__list">
-                            <li>
+                            <li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'current':''}">
                                 <a th:href="@{/}">Beranda</a>
-
                             </li>
-                            <li>
+                            <li th:classappend="${#httpServletRequest.getRequestURI() == '/property' ? 'current':''}">
                                 <a th:href="@{/property}">Property</a>
                             </li>
                             <li>
-                                <a th:href="@{/tentang_kami}">Tentang Kami</a>
+                                <a href="#footerTop">Tentang Kami</a>
+                            </li>
+                            <li
+                                th:if="${session.role == 'Super User' || session.role == 'Admin' || session.role == 'Marketing'}">
+                                <a th:href="@{/admin}">Halaman Admin</a>
                             </li>
                         </ul>
                     </div>
