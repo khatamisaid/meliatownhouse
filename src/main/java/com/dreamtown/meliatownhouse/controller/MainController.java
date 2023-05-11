@@ -223,6 +223,7 @@ public class MainController {
                             tipeProperty.get(),
                             "/p/" + namaProperty.get().trim() + "/" + tipeProperty.get()));
         }
+        model.addAttribute("logAktivitas", utils.logAktivitas());
         return "propertyDetails";
     }
 
