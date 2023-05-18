@@ -104,14 +104,14 @@ public class MainController {
         String namafile = web.getWebsiteVideo().split("\\.")[0];
         model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
         model.addAttribute("logAktivitas", utils.logAktivitas());
-        // List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
-        // if (listContactPerson.size() > 0) {
-        //     ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
-        //     model.addAttribute("contactPerson", cp);
-        // }
-        // if (activeProfile.equalsIgnoreCase("production")) {
-        //     logAktivitasRepository.save(new LogAktivitas(null, "Beranda", "/"));
-        // }
+        List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
+        if (listContactPerson.size() > 0) {
+            ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
+            model.addAttribute("contactPerson", cp);
+        }
+        if (activeProfile.equalsIgnoreCase("production")) {
+            logAktivitasRepository.save(new LogAktivitas(null, "Beranda", "/"));
+        }
         return "index";
     }
 

@@ -40,8 +40,6 @@ import com.dreamtown.meliatownhouse.service.WebsiteService;
 import com.dreamtown.meliatownhouse.utils.UUIDGenerator;
 import com.dreamtown.meliatownhouse.utils.Utils;
 
-import static org.springframework.http.MediaType.*;
-
 @Controller
 @RequestMapping(value = "/property")
 public class PropertyController {
