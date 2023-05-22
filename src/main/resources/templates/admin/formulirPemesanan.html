@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Onasis Town House | CMS</title>
+    <title th:text="${website.websiteName + ' | CMS'} "></title>
     <link rel="shortcut icon" th:href="@{/img/favicon.png}" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" th:href="@{/css/plugins.css}" />
-    <link rel="stylesheet" th:href="@{/css/style6.css}" />
+    <link rel="stylesheet" th:href="@{/assets/onasis/css/plugins.css}" />
+    <link rel="stylesheet" th:href="@{/assets/onasis/css/style6.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -835,8 +835,8 @@
             mywindow.document.write('<html><head><title>Simulasi Sistem Pembayaran</title>');
             mywindow.document.write(`<link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">`);
-            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/css/plugins.css" />`);
-            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/css/style6.css" />`);
+            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/assets/onasis/css/plugins.css" />`);
+            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/assets/onasis/css/style6.css" />`);
             mywindow.document.write(`<link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />`);
             mywindow.document.write('</head><body >');
             mywindow.document.write(data);
@@ -862,8 +862,8 @@
             mywindow.document.write('<html><head><title>Simulasi Sistem Pembayaran</title>');
             mywindow.document.write(`<link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap">`);
-            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/css/plugins.css" />`);
-            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/css/style6.css" />`);
+            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/assets/onasis/css/plugins.css" />`);
+            mywindow.document.write(`<link rel="stylesheet" href="https://onasistownhouse.com/assets/onasis/css/style6.css" />`);
             mywindow.document.write(`<link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />`);
             mywindow.document.write('</head><body >');
             mywindow.document.write(data);

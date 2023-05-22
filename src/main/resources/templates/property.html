@@ -238,7 +238,7 @@
     <!-- /.search-popup -->
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-up-arrow"></i></a>
-
+    <div th:replace="fragments/hubungikami :: hubungikami"></div>
 
     <script th:src="@{/assets/vendors/jquery/jquery-3.6.0.min.js}"></script>
     <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -273,22 +273,11 @@
     <script th:src="@{/assets/js/alipes.js}"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
-        function btnClickWA(id) {
-            $.get(`/log/whatsapp/findById/${id}`, function (cp) {
-                $.ajax({
-                    url: `/log/whatsapp`,
-                    method: "POST",
-                    data: JSON.stringify(cp),
-                    processData: false,
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data, textStatus, jqXHR) {
-                        var newWindow = window.open("", "_blank");
-                        newWindow.location.href = `https://wa.me/+62${cp.nomorTelpon}`;
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                    }
-                });
-
+        var website = /*[[${website}]]*/null;
+        function btnClickWA() {
+            $.get(`/getWhatsApp`, function (data) {
+                var newWindow = window.open("", "_blank");
+                newWindow.location.href = `${data.res}?text=${encodeURI(`Hallo Saya Ingin Bertanya Tentang ${website.websiteName} property`)}`;
             });
         }
         function cari(){

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Onasis Town House | CMS</title>
+    <title th:text="${website.websiteName + ' | CMS'} "></title>
     <link rel="shortcut icon" th:href="@{/img/favicon.png}" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" th:href="@{/css/plugins.css}" />
-    <link rel="stylesheet" th:href="@{/css/style6.css}" />
+    <link rel="stylesheet" th:href="@{/assets/onasis/css/plugins.css}" />
+    <link rel="stylesheet" th:href="@{/assets/onasis/css/style6.css}" />
     <style>
         .dataTables_wrapper label select {
             width: 160px;

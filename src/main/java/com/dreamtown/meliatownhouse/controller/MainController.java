@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dreamtown.meliatownhouse.entity.ContactPerson;
 import com.dreamtown.meliatownhouse.entity.LogAktivitas;
+import com.dreamtown.meliatownhouse.entity.LogWhatsApp;
 import com.dreamtown.meliatownhouse.entity.Property;
 import com.dreamtown.meliatownhouse.entity.PropertyDetails;
 import com.dreamtown.meliatownhouse.entity.Website;
@@ -104,11 +105,7 @@ public class MainController {
         String namafile = web.getWebsiteVideo().split("\\.")[0];
         model.addAttribute("websiteVideo", "/stream/mp4/" + namafile);
         model.addAttribute("logAktivitas", utils.logAktivitas());
-        List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
-        if (listContactPerson.size() > 0) {
-            ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
-            model.addAttribute("contactPerson", cp);
-        }
+        model.addAttribute("contactPerson", contactPersonRepository.findAll().size() > 0);
         if (activeProfile.equalsIgnoreCase("production")) {
             logAktivitasRepository.save(new LogAktivitas(null, "Beranda", "/"));
         }
@@ -196,26 +193,58 @@ public class MainController {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
+    @GetMapping("/getWhatsApp")
+    public ResponseEntity<Map> getWhatsApp() {
+        Map data = new HashMap<>();
+        List<ContactPerson> listContactPerson = contactPersonRepository.findAll();
+        if (listContactPerson.size() > 0) {
+            ContactPerson cp = listContactPerson.get(utils.getRandomIndex(listContactPerson.size()));
+            data.put("res", "https://wa.me/+62" + cp.getNomorTelpon());
+            if (activeProfile.equalsIgnoreCase("production")) {
+                logWhatsAppRepository.save(new LogWhatsApp(null, cp.getNomorTelpon(),
+                        cp.getNamaContact()));
+            }
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        }
+        data.put("res", "Kontak WhatsApp Belum Tersedia");
+        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
+    }
+
     @RequestMapping(value = "/p/{namaProperty}/{tipeProperty}", method = RequestMethod.GET)
     public String detailsProperty(Model model, @PathVariable Optional<String> namaProperty,
             @PathVariable Optional<String> tipeProperty) {
         Property property = propertyService.getPropertyByName(namaProperty.get());
-        PropertyDetails propertyDetails = propertyDetailsService.getPropertyDetails(property.getIdProperty(),
+        Optional<PropertyDetails> propertyDetails = propertyDetailsService.getPropertyDetails(property.getIdProperty(),
                 tipeProperty.get());
+        if (!propertyDetails.isPresent()) {
+            return "redirect:/";
+        }
         Website web = websiteRepository.findAll().get(0);
         model.addAttribute("website", web);
-        model.addAttribute("property", propertyDetails);
+        model.addAttribute("property", propertyDetails.get());
         model.addAttribute("websiteName", websiteService.websiteName());
-        model.addAttribute("contactPerson", contactPersonRepository.findAll());
-        String[] splitDeskripsi = propertyDetails.getDeskripsi().split("\n");
-        String[] deskripsiArr1 = Arrays.copyOfRange(splitDeskripsi, 0, splitDeskripsi.length / 2);
-        String[] deskripsiArr2 = Arrays.copyOfRange(splitDeskripsi, splitDeskripsi.length / 2, splitDeskripsi.length);
+        model.addAttribute("contactPerson", contactPersonRepository.findAll().size() > 0);
+        String[] splitDeskripsi = null;
+        String[] deskripsiArr1 = null;
+        String[] deskripsiArr2 = null;
+        try {
+            splitDeskripsi = propertyDetails.get().getDeskripsi().split("\n");
+            deskripsiArr1 = Arrays.copyOfRange(splitDeskripsi, 0, splitDeskripsi.length / 2);
+            deskripsiArr2 = Arrays.copyOfRange(splitDeskripsi, splitDeskripsi.length / 2,
+                    splitDeskripsi.length);
+        } catch (NullPointerException e) {
+            splitDeskripsi = new String[] {};
+            deskripsiArr1 = new String[] {};
+            deskripsiArr2 = new String[] {};
+        }
         model.addAttribute("deskripsiArr1", deskripsiArr1);
         model.addAttribute("deskripsiArr2", deskripsiArr2);
         model.addAttribute("namaProperty", namaProperty.get());
-        if (propertyDetails.getListPhoto().size() > 5) {
-            model.addAttribute("sizePhotoLainnya", "+" + (propertyDetails.getListPhoto().size() - 5) + " Lainnya");
+        if (propertyDetails.get().getListPhoto().size() > 5) {
+            model.addAttribute("sizePhotoLainnya",
+                    "+" + (propertyDetails.get().getListPhoto().size() - 5) + " Lainnya");
         }
+        model.addAttribute("contactPerson", contactPersonRepository.findAll().size() > 0);
         model.addAttribute("lineSeparator", System.lineSeparator());
         if (activeProfile.equalsIgnoreCase("production")) {
             logAktivitasRepository.save(
