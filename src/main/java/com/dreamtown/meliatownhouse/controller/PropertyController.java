@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,9 +38,11 @@ import com.dreamtown.meliatownhouse.repository.PropertyDetailsRepository;
 import com.dreamtown.meliatownhouse.repository.PropertyRepository;
 import com.dreamtown.meliatownhouse.repository.WebsiteRepository;
 import com.dreamtown.meliatownhouse.service.WebsiteService;
+import com.dreamtown.meliatownhouse.utils.CetakFormulirPemesananRumah;
 import com.dreamtown.meliatownhouse.utils.UUIDGenerator;
 import com.dreamtown.meliatownhouse.utils.Utils;
-
+import com.dreamtown.meliatownhouse.viewmodel.ViewModelCetakFormulirPemesananRumah;
+import static org.springframework.http.MediaType.*;
 @Controller
 @RequestMapping(value = "/property")
 public class PropertyController {
@@ -187,5 +190,65 @@ public class PropertyController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Autowired
+    private CetakFormulirPemesananRumah cetakFormulirPemesananRumah;
+
+    @RequestMapping(value = "/cetakFormulirPemesanan/{idProperty}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<Map> cetakFormulirPemesanan(@PathVariable Integer idProperty,
+            @RequestBody ViewModelCetakFormulirPemesananRumah vmCetakRumah) throws IOException {
+        if (vmCetakRumah.getNamaProperty().equalsIgnoreCase("")) {
+            Map response = new HashMap();
+            response.put("message", "File Not Found");
+            ResponseEntity respEntity = new ResponseEntity(response,
+                    HttpStatus.NOT_FOUND);
+            return respEntity;
+        }
+        Map response = new HashMap();
+        Optional<PropertyDetails> tempPropertyDetails = propertyDetailsRepository.findOneByIdPropertyAndTipeProperty(
+                idProperty,
+                vmCetakRumah.getTipeProperty().trim());
+        String filename = "Simulasi_Pemesanan_Rumah_" +
+                vmCetakRumah.getNamaProperty() + "_" + vmCetakRumah.getTipeProperty().trim() + ".pdf";
+        String path = env.getProperty("storage.file") + "test.pdf";
+        List<ViewModelCetakFormulirPemesananRumah> list = new ArrayList<>();
+        list.add(vmCetakRumah);
+        Map<String, Object> parameter = new HashMap<>();
+        InputStream fotoProerty = new FileInputStream(
+                env.getProperty("storage.images") + tempPropertyDetails.get().getListPhoto().get(0).getNamaPhoto());
+        parameter.put("logo", getClass().getResourceAsStream("/static/img/favicon.png"));
+        parameter.put("fotoProperty", fotoProerty);
+        cetakFormulirPemesananRumah.writePdf(list, path, parameter);
+        InputStream inputStream = new FileInputStream(path);
+        byte[] out = org.apache.commons.io.IOUtils.toByteArray(inputStream);
+        response.put("file", out);
+        response.put("filename", filename);
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/cetakFormulirPemesananManual", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public ResponseEntity<Map> cetakFormulirPemesananManual(
+            @RequestBody ViewModelCetakFormulirPemesananRumah vmCetakRumah) throws IOException {
+        if (vmCetakRumah.getNamaProperty().equalsIgnoreCase("")) {
+            Map response = new HashMap();
+            response.put("message", "File Not Found");
+            ResponseEntity respEntity = new ResponseEntity(response,
+                    HttpStatus.NOT_FOUND);
+            return respEntity;
+        }
+        Map response = new HashMap();
+        String filename = "Simulasi_Pemesanan_Rumah_" +
+                vmCetakRumah.getNamaProperty() + "_" + vmCetakRumah.getTipeProperty().trim() + ".pdf";
+        String path = env.getProperty("storage.file") + "test.pdf";
+        List<ViewModelCetakFormulirPemesananRumah> list = new ArrayList<>();
+        list.add(vmCetakRumah);
+        Map<String, Object> parameter = new HashMap<>();
+        parameter.put("logo", getClass().getResourceAsStream("/static/img/logo_melia_hd.png"));
+        cetakFormulirPemesananRumah.writePdfManual(list, path, parameter);
+        InputStream inputStream = new FileInputStream(path);
+        byte[] out = org.apache.commons.io.IOUtils.toByteArray(inputStream);
+        response.put("file", out);
+        response.put("filename", filename);
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
     
 }

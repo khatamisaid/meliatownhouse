@@ -121,6 +121,7 @@ public class AdminController {
         model.addAttribute("menus", menu.getListProperty());
         model.addAttribute("listWilayah", mWilayahRepository.findAll());
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         return "admin/managementUser";
     }
 
@@ -133,6 +134,7 @@ public class AdminController {
         model.addAttribute("listWilayah", mWilayahRepository.findAll());
         model.addAttribute("property", property);
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         return "admin/property";
     }
 
@@ -148,6 +150,7 @@ public class AdminController {
         model.addAttribute("menus", menu.getListProperty());
         model.addAttribute("listWilayah", mWilayahRepository.findAll());
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         return "admin/detailsProperty";
     }
 
@@ -402,6 +405,7 @@ public class AdminController {
         model.addAttribute("tanggal", sdf.format(new Date()));
         model.addAttribute("menus", menu.getListProperty());
         model.addAttribute("listProperty", propertyRepository.findAll());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
         return "admin/formulirPemesanan";
     }
@@ -412,6 +416,7 @@ public class AdminController {
         model.addAttribute("menus", menu.getListProperty());
         model.addAttribute("listWilayah", mWilayahRepository.findAll());
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         return "admin/wilayah";
     }
 
@@ -532,6 +537,7 @@ public class AdminController {
     public String kontakWhatsApp(Model model) {
         model.addAttribute("menus", menu.getListProperty());
         model.addAttribute("listProperty", propertyRepository.findAll());
+        model.addAttribute("website", websiteRepository.findAll().get(0));
         model.addAttribute("websiteName", websiteService.websiteNameAdmin());
         return "admin/kontakWhatsapp";
     }
