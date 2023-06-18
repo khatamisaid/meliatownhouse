@@ -1,4 +1,116 @@
-<div class="container" th:fragment="listRekomendasi">
+<div th:fragment="listRekomendasi" class="apartment-three__inner">
+    <div class="apartment-three__shape-1 img-bounce">
+        <img src="assets/images/shapes/apartment-three-shape-1.png" alt="">
+    </div>
+    <div class="section-title text-center">
+        <span class="section-title__tagline">choose your apartment</span>
+        <h2 class="section-title__title">first floor apartment</h2>
+    </div>
+    <div class="row" id="contentListRekomendasi">
+        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+            <div class="apartment-three__single">
+                <div class="apartment-three__img">
+                    <img src="assets/images/resources/apartment-3-1.jpg" alt="">
+                </div>
+                <div class="apartment-three__content">
+                    <h3 class="apartment-three__title"><a href="apartment-details-2.html">Cipinang Baru Raya</a></h3>
+                    <p class="apartment-three__title">Rp. 1.3M</p>
+                    <ul class="apartment-three__list list-unstyled">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bedroom-2"></span>
+                            </div>
+                            <p>2<br>Kamar Tidur</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bathtub"></span>
+                            </div>
+                            <p>1<br>Kamar Mandi</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-car-parking"></span>
+                            </div>
+                            <p>2<br>Car Port</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+            <div class="apartment-three__single">
+                <div class="apartment-three__img">
+                    <img src="assets/images/resources/apartment-3-2.jpg" alt="">
+                </div>
+                <div class="apartment-three__content">
+                    <h3 class="apartment-three__title"><a href="apartment-details-2.html">3 rooms
+                            apartment</a></h3>
+                    <p class="apartment-three__sub-title">luxury, high tech</p>
+                    <ul class="apartment-three__list list-unstyled">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bedroom-2"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bathtub"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-measurement"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
+            <div class="apartment-three__single">
+                <div class="apartment-three__img">
+                    <img src="assets/images/resources/apartment-3-3.jpg" alt="">
+                </div>
+                <div class="apartment-three__content">
+                    <h3 class="apartment-three__title"><a href="apartment-details-2.html">2 rooms
+                            apartment</a></h3>
+                    <p class="apartment-three__sub-title">luxury, high tech</p>
+                    <ul class="apartment-three__list list-unstyled">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bedroom-2"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-bathtub"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-measurement"></span>
+                            </div>
+                            <p>2 bedroom</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="paginationListRekomendasi">
+    </div>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/torupiah.js}"></script>
+</div>
+
+
+<!-- <div class="container" th:fragment="listRekomendasi">
     <div class="row" id="contentListRekomendasi">
     </div>
     <div class="row" id="paginationListRekomendasi">
@@ -106,4 +218,4 @@
             return toRupiah(angka, { symbol: 'IDR', useUnit: true, longUnit: true, spaceBeforeUnit: true, formal: false, decimal: '.', floatingPoint: 1 }).replace(".0 juta", " juta").replace(".0 miliar", " miliar");
         }
     </script>
-</div>
+</div> -->

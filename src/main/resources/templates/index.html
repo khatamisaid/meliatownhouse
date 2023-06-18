@@ -147,20 +147,27 @@
         <!--Main Slider End-->
 
         <!--Apartment Three Start-->
-        <section class="apartment-three">
+        <section class="apartment-three" id="appartments">
+            <div class="container">
+                <div th:replace="listRekomendasi :: listRekomendasi"></div>
+            </div>
+        </section>
+        <!--Apartment Three End-->
+
+        <!--Apartment Three Start-->
+        <!-- <section class="apartment-three">
             <div class="container">
                 <div class="apartment-three__inner">
                     <div class="apartment-three__shape-1 img-bounce">
                         <img th:src="@{/assets/images/shapes/apartment-three-shape-1.png}" alt="">
                     </div>
                     <div class="section-title text-center">
-                        <!-- <span class="section-title__tagline">choose your apartment</span> -->
                         <h2 class="section-title__title">Rekomendasi Hunian</h2>
                     </div>
                     <div th:replace="listRekomendasi :: listRekomendasi"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!--Apartment Three End-->
 
         <!--Availability Start-->
@@ -174,7 +181,7 @@
                     <div class="container d-flex flex-row">
                         <div style="margin-right: 4px;" class="col-md-6">
                             <div class=" wow fadeInUp" data-wow-delay="400ms">
-                                <div style="background-color: var(--alipes-gray);" class="card-body">
+                                <div style="background-color: var(--alipes-black);" class="card-body">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex flex-row items-center justify-content-center">
                                             <img style="width: 90px;" th:src="@{/icons/home.png}" alt="Image Not Found"
@@ -199,7 +206,7 @@
 
                         <div style="margin-left: 4px;" class="col-md-6">
                             <div class=" wow fadeInUp" data-wow-delay="400ms">
-                                <div style="background-color: var(--alipes-gray);" class="card-body">
+                                <div style="background-color: var(--alipes-black);" class="card-body">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex flex-row items-center justify-content-center">
                                             <img style="width: 90px;" th:src="@{/icons/cash.png}" alt="Image Not Found"
@@ -231,7 +238,7 @@
                         <div class="row">
                             <div class="col-md-4 mt-2 mb-2">
                                 <div class="wow fadeInUp" data-wow-delay="400ms" style="height: 226px;">
-                                    <div style="background-color: var(--alipes-gray);" class="card-body">
+                                    <div style="background-color: var(--alipes-black);" class="card-body">
                                         <div class="d-flex flex-column">
                                             <div class="d-flex flex-row items-center justify-content-center">
                                                 <img style="width: 90px;" th:src="@{/icons/marketing.png}"
@@ -247,7 +254,7 @@
                             </div>
                             <div class="col-md-4 mt-2 mb-2">
                                 <div class="wow fadeInUp" data-wow-delay="400ms" style="height: 226px;">
-                                    <div style="background-color: var(--alipes-gray);" class="card-body">
+                                    <div style="background-color: var(--alipes-black);" class="card-body">
                                         <div class="d-flex flex-column">
                                             <div class="d-flex flex-row items-center justify-content-center">
                                                 <img style="width: 90px;" th:src="@{/icons/kualitas.png}"
@@ -263,7 +270,7 @@
                             </div>
                             <div class="col-md-4 mt-2 mb-2">
                                 <div class="wow fadeInUp" data-wow-delay="400ms" style="height: 226px;">
-                                    <div style="background-color: var(--alipes-gray);" class="card-body">
+                                    <div style="background-color: var(--alipes-black);" class="card-body">
                                         <div class="d-flex flex-column">
                                             <div class="d-flex flex-row items-center justify-content-center">
                                                 <img style="width: 90px;" th:src="@{/icons/cash.png}"
@@ -311,64 +318,91 @@
         </section>
         <!--Video One End-->
 
-        <!--Availability Start-->
-        <section class="availability">
-            <!-- <div class="availability__bg" style="background-image: url(assets/images/backgrounds/availability-bg.png);">
-            </div> -->
+        <!--About Three Start-->
+        <section class="about-three">
+            <div class="about-three__shape-2 float-bob-y"></div>
             <div class="container">
-                <div class="section-title text-center">
-                    <!-- <span class="section-title__tagline">Move in ready home</span> -->
-                    <h2 class="section-title__title">Kenapa Harus Melia Town House ?</h2>
-                </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="counter-two__single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="d-flex justify-content-center">
-                                <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/cash.png}"
-                                    alt="Image Not Found" srcset="">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <h5>Tidak Ada Bunga</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="counter-two__single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="d-flex justify-content-center">
-                                <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/discount.png}"
-                                    alt="Image Not Found" srcset="">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <h5>Pasti Ada Discount</h5>
+                    <div class="col-xl-6">
+                        <div class="about-three__left">
+                            <div class="about-three__img-box">
+                                <div class="about-three__img-1">
+                                    <img width="362" height="631" th:src="@{/images/about-3-1.jpg}" alt="">
+                                </div>
+                                <div class="about-three__img-2">
+                                    <img width="168" height="632" th:src="@{/images/about-3-2.jpg}" alt="">
+                                </div>
+                                <div class="about-three__shape-1"></div>
+                                <div class="about-two__big-text">Melia</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="counter-two__single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="d-flex justify-content-center">
-                                <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/pusatkota.png}"
-                                    alt="Image Not Found" srcset="">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <h5>Lokasi Pusat Kota</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="counter-two__single wow fadeInUp" data-wow-delay="400ms">
-                            <div class="d-flex justify-content-center">
-                                <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/hargamurah.png}"
-                                    alt="Image Not Found" srcset="">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <h5>100% Harga Paling Murah</h5>
+                    <div class="col-xl-6 d-flex align-items-center">
+                        <div class="about-three__right">
+                            <div class="section-title text-center">
+                                <!-- <span class="section-title__tagline">our building overview</span> -->
+                                <h2 class="section-title__title">Kenapa Harus Melia TownHouse ? </h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--Availability End-->
+        <!--About Three End-->
+
+        <!--Counter Two Start-->
+        <section class="counter-two">
+            <div class="counter-two__shape-1 float-bob-x">
+                <img src="assets/images/shapes/counter-two-shape-1.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="counter-two__inner">
+                            <ul class="list-unstyled counter-two__list">
+                                <li class="counter-two__single wow fadeInLeft" data-wow-delay="100ms">
+                                    <div class="counter-two__icon">
+                                        <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/cash.png}"
+                                            alt="Image Not Found" srcset="">
+                                    </div>
+                                    <div class="counter-two__content-box">
+                                        <p class="counter-two__text" style="color: black;">Tidak Ada Bunga</p>
+                                    </div>
+                                </li>
+                                <li class="counter-two__single wow fadeInLeft" data-wow-delay="200ms">
+                                    <div class="counter-two__icon">
+                                        <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/discount.png}"
+                                            alt="Image Not Found" srcset="">
+                                    </div>
+                                    <div class="counter-two__content-box">
+                                        <p class="counter-two__text" style="color: black;">Pasti Ada Discount</p>
+                                    </div>
+                                </li>
+                                <li class="counter-two__single wow fadeInLeft" data-wow-delay="300ms">
+                                    <div class="counter-two__icon">
+                                        <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/pusatkota.png}"
+                                            alt="Image Not Found" srcset="">
+                                    </div>
+                                    <div class="counter-two__content-box">
+                                        <p class="counter-two__text" style="color: black;">Lokasi Pusat Kota</p>
+                                    </div>
+                                </li>
+                                <li class="counter-two__single wow fadeInLeft" data-wow-delay="400ms">
+                                    <div class="counter-two__icon">
+                                        <img style="width: 90px; margin-bottom: 20px;" th:src="@{/icons/hargamurah.png}"
+                                            alt="Image Not Found" srcset="">
+                                    </div>
+                                    <div class="counter-two__content-box">
+                                        <p class="counter-two__text" style="color: black;">100% Harga Paling Murah</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Counter Two End-->
 
         <!--Site Footer Start-->
         <footer class="site-footer">
