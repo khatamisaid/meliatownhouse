@@ -7,7 +7,7 @@
     <script th:src="@{/js/torupiah.js}"></script>
     <script th:inline="javascript">
         var page = 1;
-        var size = 8;
+        var size = 4;
         function getListProperty() {
             $.get(`/listProperty?page=${page}&size=${size}&area=${$("#area option:selected").val()}`, function (res) {
                 $("#contentListProperty").empty();
@@ -65,30 +65,8 @@
             scrollTo('listProperty');
         }
         $(document).ready(function () {
-            resizeScreenListProperty();
+            getListProperty();
         });
-
-        function resizeScreenListProperty() {
-            if (document.body.clientWidth < 768) {
-                size = 3;
-                getListProperty();
-            } else if (document.body.clientWidth < 991) {
-                size = 4;
-                getListProperty();
-            } else {
-                getListProperty();
-            }
-        }
-        function debounce(func) {
-            var timer;
-            return function (event) {
-                if (timer) clearTimeout(timer);
-                timer = setTimeout(func, 300, event);
-            };
-        }
-        window.addEventListener("resize", debounce(function (e) {
-            resizeScreenListProperty();
-        }));
         function formatRupiah(angka) {
             return toRupiah(angka, { symbol: 'IDR', useUnit: true, longUnit: true, spaceBeforeUnit: true, formal: false, decimal: '.', floatingPoint: 1 }).replace(".0 juta", " juta").replace(".0 miliar", " miliar");
         }
