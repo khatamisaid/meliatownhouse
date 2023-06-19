@@ -89,7 +89,6 @@
                 $("#contentListRekomendasi").empty();
                 res.propertyPage.content.forEach(function (property, index) {
                     var propertyDetails = property.listPropertyDetails[0];
-                    console.log(propertyDetails);
                     $("#contentListRekomendasi").append(`
                     <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
             <div style="cursor:pointer;" onclick="window.location.href = '/p/${property.propertyName}/${propertyDetails.tipeProperty}'" class="apartment-three__single">
