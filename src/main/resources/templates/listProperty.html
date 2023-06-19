@@ -1,4 +1,4 @@
-<div class="container" th:fragment="listProperty">
+<div class="container" th:fragment="listProperty" id="listProperty>
     <div class="row" id="contentListProperty">
     </div>
     <div class="row" id="paginationListProperty">
@@ -52,17 +52,17 @@
         function gotoPage(i) {
             page = i;
             getListProperty();
-            scrollTo('contentListProperty');
+            scrollTo('listProperty');
         }
         function clickRight() {
             page++;
             getListProperty();
-            scrollTo('contentListProperty');
+            scrollTo('listProperty');
         }
         function clickLeft() {
             page--;
             getListProperty();
-            scrollTo('contentListProperty');
+            scrollTo('listProperty');
         }
         $(document).ready(function () {
             resizeScreenListProperty();

@@ -1,4 +1,4 @@
-<div th:fragment="listRekomendasi" class="apartment-three__inner">
+<div th:fragment="listRekomendasi" class="apartment-three__inner" id="listRekomendasi">
     <div class="apartment-three__shape-1 img-bounce">
         <img src="assets/images/shapes/apartment-three-shape-1.png" alt="">
     </div>
@@ -91,17 +91,17 @@
         function gotoPage(i) {
             page = i;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
         function clickRight() {
             page++;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
         function clickLeft() {
             page--;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
     </script>
 </div>
@@ -173,17 +173,17 @@
         function gotoPage(i) {
             page = i;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
         function clickRight() {
             page++;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
         function clickLeft() {
             page--;
             getRekomendasiProperty();
-            scrollTo('contentListRekomendasi');
+            scrollTo('listRekomendasi');
         }
         $(document).ready(function () {
             resizeScreenRekomendasiProperty();
